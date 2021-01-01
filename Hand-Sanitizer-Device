@@ -1,3 +1,9 @@
+/*      Metehan Doğan
+Eskişehir Osmangazi University
+        151220192033
+        #Coded by Metra3
+*/        
+
 #include <sd_l0.h>                      //SD Kart Modülü için gereken kütüphaneler eklendi.
 #include <sd_l1.h>                      //SD Kart Modülü için gereken kütüphaneler eklendi.*
 #include <sd_l2.h>                      //SD Kart Modülü için gereken kütüphaneler eklendi.*
@@ -9,7 +15,7 @@ LiquidCrystal_I2C_AvrI2C lcd(0x27,16,2);
   
 int IRsensor = 8;                       //IR sensör 8. pine bağlandı.              
 int deger;                              //IR sensörden alınan değer kıyası yapabilmek için değişken tanımlandı.
-#define motor_pin 3                     //Mini dalgıç su pompası 3.pine bağlandı.
+int motor_pin = 3;                      //Mini dalgıç su pompası 3.pine bağlandı.
 
 void setup() 
 {
@@ -32,9 +38,9 @@ void loop()
  if(deger == 1)                      //*****Sensör Eğer kullanıcının elini görürüse*****    
   {  
    digitalWrite(motor_pin, LOW);       
-   lcd.setCursor(3,0);               //0.Satır ve 3.Sütundan yazmaya başlar  
+   lcd.setCursor(3,0);               //0.Satır ve 3.Sütundan yazmaya başlar.  
    lcd.print("Take  Care");          //LCD ekranda üst satırda yazdırılacak metin
-   lcd.setCursor(3,1);               //1.Satır ve 0.Sütundan yazmaya başlar 
+   lcd.setCursor(3,1);               //1.Satır ve 0.Sütundan yazmaya başlar.
    lcd.print("#STAYHOME#");          //LCD ekranda alt satırda yazdırılacak metin
    delay(1000);
    lcd.clear(); 
@@ -43,8 +49,8 @@ void loop()
 /*-----------------------------------------------------------------------------------------*/
 if (deger == 0)                       //*****Sensör Eğer kullanıcının elini görürüse*****    
   {
-   SdPlay.setFile("ses.wav");         //Çalınacak dosyanın adı belirle
-   SdPlay.play();                     //Seçilen dosyayı çal
+   SdPlay.setFile("ses.wav");         //Çalınacak dosyanın adı belirle.
+   SdPlay.play();                     //Seçilen dosyayı çal.
    digitalWrite(motor_pin, HIGH);     //motor aktif hale gelir.
    lcd.setCursor(5,0);                           
    lcd.print("Please");              
@@ -61,7 +67,8 @@ if (deger == 0)                       //*****Sensör Eğer kullanıcının elini
    lcd.setCursor(3,1);      
    lcd.print("Completed");
    delay(1700);  
-   lcd.clear(); 
+   lcd.clear();
+   
    //Ekrana "Take Your Hand Off" yazdırmak için gereken komutlar
    lcd.setCursor(4,0);     
    lcd.print("Take Your");
