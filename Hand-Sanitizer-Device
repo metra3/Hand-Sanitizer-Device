@@ -35,7 +35,7 @@ void loop()
  Serial.println(deger);
 
  
- if(deger == 1)                      //*****Sensör Eğer kullanıcının elini görürüse*****    
+ if(deger == 1)                      //*****Sensör Eğer kullanıcının elini görüyor ise*****    
   {  
    digitalWrite(motor_pin, LOW);       
    lcd.setCursor(3,0);               //0.Satır ve 3.Sütundan yazmaya başlar.  
@@ -47,7 +47,7 @@ void loop()
   } 
 /*-----------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------*/
-if (deger == 0)                       //*****Sensör Eğer kullanıcının elini görürüse*****    
+if (deger == 0)                       //*****Sensör Eğer kullanıcının elini görmüyor ise*****    
   {
    SdPlay.setFile("ses.wav");         //Çalınacak dosyanın adı belirle.
    SdPlay.play();                     //Seçilen dosyayı çal.
